@@ -9,12 +9,12 @@ const experiment = (sequelize, DataTypes) => {
       validate: { notEmpty: false },
     },
     epoch_samples: {
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       validate: { notEmpty: false },
       defaultValue: 255,
     },
     epoch_interval: {
-      type: DataTypes.Integer,
+      type: DataTypes.INTEGER,
       validate: { notEmpty: false },
       defaultValue: 100,
     },
@@ -32,7 +32,7 @@ const experiment = (sequelize, DataTypes) => {
 
   Experiment.associate = models => {
     Experiment.belongsTo(models.Researcher);
-    Experiment.hasMany(models.Video, {through: 'experiment_video_xref'});
+    Experiment.belongsToMany(models.Video, {through: 'experiment_video_xref'});
     Experiment.hasMany(models.Session, {onDelete: 'CASCADE'});
   };
 

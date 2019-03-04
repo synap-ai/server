@@ -14,7 +14,6 @@ const video = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
-        ƒ,
       },
     },
     youtube_id: {
@@ -35,8 +34,8 @@ const video = (sequelize, DataTypes) => {
   });
 
   Video.associate = models => {
-    Video.hasMany(models.Experiment, {through: 'experiment_video_xref'});
-    Experiment.hasMany(models.Session);
+    Video.belongsToMany(models.Experiment, {through: 'experiment_video_xref'});
+    Video.hasMany(models.Session);
   };
 
   return Video;

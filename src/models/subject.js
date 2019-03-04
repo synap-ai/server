@@ -13,7 +13,7 @@ const subject = (sequelize, DataTypes) => {
         unique: false,
         allowNull: false,
         validate: {
-          notEmpty: true,ƒ
+          notEmpty: true,
         },
       },
       email: {
