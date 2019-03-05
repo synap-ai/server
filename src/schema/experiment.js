@@ -7,14 +7,37 @@ export default gql`
   }
 
   extend type Mutation {
-    createExperiment(text: String!): Experiment!
+    createExperiment(
+      researcherId: ID!
+      title: String!
+      description: String
+      epoch_samples: Int
+      epoch_interval: Int
+      uses_band_powers: Boolean
+      uses_covariance: Boolean
+    ): Experiment!
+
+    updateExperiment(
+      id: ID!
+      title: String!
+      description: String
+      epoch_samples: Int
+      epoch_interval: Int
+      uses_band_powers: Boolean
+      uses_covariance: Boolean
+    ): Experiment!
+
     deleteExperiment(id: ID!): Boolean!
   }
 
   type Experiment {
     id: ID!
-    text: String!
-    createdAt: Date!
-    user: User!
+    researcherId: ID!
+    title: String!
+    description: String
+    epoch_samples: Int
+    epoch_interval: Int
+    uses_band_powers: Boolean
+    uses_covariance: Boolean
   }
 `;

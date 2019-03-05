@@ -83,7 +83,7 @@ export default {
 
   Researcher: {
     experiments: async (researcher, args, { models }) => {
-      return await models.Expermients.findAll({
+      return await models.Experiment.findAll({
         where: {
           researcherId: researcher.id,
         },
