@@ -5,6 +5,7 @@ import messageSchema from './message';
 import subjectSchema from './subject';
 import researcherSchema from './researcher';
 import experimentSchema from './experiment';
+import videoSchema from './video'
 
 const linkSchema = gql`
   scalar Date
@@ -28,5 +29,6 @@ export default [
   messageSchema,
   subjectSchema,
   researcherSchema,
-  experimentSchema
+  experimentSchema,
+  videoSchema,
 ];
