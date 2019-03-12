@@ -15,6 +15,7 @@ export default gql`
       epoch_interval: Int
       uses_band_powers: Boolean
       uses_covariance: Boolean
+      videos: [VideoInput]
     ): Experiment!
 
     updateExperiment(
@@ -25,6 +26,7 @@ export default gql`
       epoch_interval: Int
       uses_band_powers: Boolean
       uses_covariance: Boolean
+      videos: [VideoInput]
     ): Experiment!
 
     deleteExperiment(id: ID!): Boolean!
@@ -39,5 +41,6 @@ export default gql`
     epoch_interval: Int
     uses_band_powers: Boolean
     uses_covariance: Boolean
+    videos: [Video]
   }
 `;

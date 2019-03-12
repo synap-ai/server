@@ -32,4 +32,11 @@ export default gql`
     youtube_id: String!
     category: String
   }
+  
+  input VideoInput {
+    title: String!
+    description: String
+    youtube_id: String!
+    category: String
+  }
 `;

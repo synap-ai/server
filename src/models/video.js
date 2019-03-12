@@ -11,10 +11,7 @@ const video = (sequelize, DataTypes) => {
     description: {
       type: DataTypes.STRING(1000),
       unique: false,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+      allowNull: true,
     },
     youtube_id: {
       type: DataTypes.STRING(15),
@@ -26,10 +23,7 @@ const video = (sequelize, DataTypes) => {
     },
     category: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
+      allowNull: true,
     },
   });
 
