@@ -11,7 +11,7 @@ export default {
   Mutation: {
     createSession: async (
       parent,
-      { subjectId, experimentId, videoId, eeg_data, date },
+      { subjectId, experimentId, videoId, eeg_data },
       { models },
     ) => {
       const session = await models.Session.create({
@@ -19,9 +19,8 @@ export default {
         experimentId,
         videoId,
         eeg_data,
-        date,
       });
-
+      
       return session;
     },
 

@@ -32,8 +32,6 @@ export default {
         uses_band_powers,
         uses_covariance,
       });
-
-      let experiment_id = experiment.id;
       
       for (let i = 0; i < videos.length; i++) {
         let title = videos[i].title;

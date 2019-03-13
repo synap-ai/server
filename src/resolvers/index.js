@@ -5,7 +5,8 @@ import messageResolvers from './message';
 import subjectResolvers from './subject';
 import researcherResolvers from './researcher';
 import experimentResolvers from './experiment';
-import videoResolvers from './video'
+import videoResolvers from './video';
+import sessionResolvers from './session';
 
 const customScalarResolver = {
   Date: GraphQLDateTime,
@@ -18,5 +19,6 @@ export default [
   subjectResolvers,
   researcherResolvers,
   experimentResolvers,
-  videoResolvers
+  videoResolvers,
+  sessionResolvers
 ];

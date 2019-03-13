@@ -4,11 +4,6 @@ const session = (sequelize, DataTypes) => {
       type: DataTypes.ARRAY(DataTypes.JSON),
       validate: { notEmpty: true },
     },
-    date: {
-      type: DataTypes.DATE,
-      validate: { notEmpty: true },
-      defaultValue: sequelize.NOW,
-    },
   });
 
   Session.associate = models => {

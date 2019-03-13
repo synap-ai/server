@@ -15,7 +15,7 @@ const video = (sequelize, DataTypes) => {
     },
     youtube_id: {
       type: DataTypes.STRING(15),
-      unique: true,
+      unique: false,
       allowNull: false,
       validate: {
         notEmpty: true,

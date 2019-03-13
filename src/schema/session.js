@@ -11,8 +11,7 @@ export default gql`
       subjectId: ID!
       experimentId: ID!
       videoId: ID!
-      eeg_data: [EEG!]!
-      date: Date!
+      eeg_data: [EEGInput!]!
     ): Session!
 
     deleteSession(id: ID!): Boolean!
@@ -24,14 +23,21 @@ export default gql`
     experimentId: ID!
     videoId: ID!
     eeg_data: [EEG!]!
-    date: Date!
   }
 
+  input EEGInput {
+    timestamp: Float!
+    tp9: Float!
+    af7: Float!
+    af8: Float!
+    tp10: Float!
+  }
+  
   type EEG {
-    timestamp: Int!
-    tp9: Int!
-    fp1: Int!
-    fp2: Int!
-    tp10: Int!
+    timestamp: Float!
+    tp9: Float!
+    af7: Float!
+    af8: Float!
+    tp10: Float!
   }
 `;
