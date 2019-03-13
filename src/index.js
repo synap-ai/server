@@ -95,12 +95,32 @@ const port = process.env.PORT || 8000;
 sequelize.sync({ force: isTest || isProduction }).then(async () => {
   if (isTest || isProduction) {
     createUsersWithMessages(new Date());
+  } else { //dev
+    CreateTestResearcher(1);
   }
 
   httpServer.listen({ port }, () => {
     console.log(`Apollo Server on http://localhost:${port}/graphql`);
   });
 });
+
+const CreateTestResearcher = async id => {
+  let r = await models.Researcher.findById(1);
+  if (r) {
+    return;
+  }
+
+  await models.Researcher.create(
+    {
+      id: id,
+      first_name: "Fuzzy",
+      last_name: "Dunlop",
+      email: "fuzzyd@example.com",
+      password: "password",
+    }
+  );
+
+}
 
 const createUsersWithMessages = async date => {
   await models.User.create(
