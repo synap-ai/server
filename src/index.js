@@ -14,12 +14,14 @@ import schema from './schema';
 import resolvers from './resolvers';
 import models, { sequelize } from './models';
 import loaders from './loaders';
+import bodyParser from 'body-parser';
 
 const app = express();
 
 app.use(cors());
 
 app.use(morgan('dev'));
+app.use(bodyParser.json({limit: '50mb'}));
 
 const getMe = async req => {
   const token = req.headers['x-token'];
