@@ -11,10 +11,6 @@ export default gql`
       researcherId: ID!
       title: String!
       description: String
-      epoch_samples: Int
-      epoch_interval: Int
-      uses_band_powers: Boolean
-      uses_covariance: Boolean
       videos: [VideoInput]
     ): Experiment!
 
@@ -22,10 +18,6 @@ export default gql`
       id: ID!
       title: String!
       description: String
-      epoch_samples: Int
-      epoch_interval: Int
-      uses_band_powers: Boolean
-      uses_covariance: Boolean
       videos: [VideoInput]
     ): Experiment!
 
@@ -37,10 +29,6 @@ export default gql`
     researcherId: ID!
     title: String!
     description: String
-    epoch_samples: Int
-    epoch_interval: Int
-    uses_band_powers: Boolean
-    uses_covariance: Boolean
     videos: [Video]
   }
 `;

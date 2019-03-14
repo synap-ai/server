@@ -97,6 +97,7 @@ sequelize.sync({ force: isTest || isProduction }).then(async () => {
     createUsersWithMessages(new Date());
   } else { //dev
     CreateTestResearcher(1);
+    CreateTestSubject(1);
   }
 
   httpServer.listen({ port }, () => {
@@ -105,7 +106,7 @@ sequelize.sync({ force: isTest || isProduction }).then(async () => {
 });
 
 const CreateTestResearcher = async id => {
-  let r = await models.Researcher.findById(1);
+  let r = await models.Researcher.findById(id);
   if (r) {
     return;
   }
@@ -119,6 +120,24 @@ const CreateTestResearcher = async id => {
       password: "password",
     }
   );
+
+}
+
+const CreateTestSubject = async id => {
+  let s = await models.Subject.findById(id);
+  if (s) {
+    return;
+  }
+
+  await models.Subject.create({
+    id: id,
+    first_name: "John",
+    last_name: "Smith",
+    email: "jsmith@example.com",
+    gender: "M",
+    dob : new Date(),
+    dominant_hand: "R"
+  });
 
 }
 
