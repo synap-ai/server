@@ -8,26 +8,6 @@ const experiment = (sequelize, DataTypes) => {
       type: DataTypes.STRING(1000),
       validate: { notEmpty: false },
     },
-    epoch_samples: {
-      type: DataTypes.INTEGER,
-      validate: { notEmpty: false },
-      defaultValue: 255,
-    },
-    epoch_interval: {
-      type: DataTypes.INTEGER,
-      validate: { notEmpty: false },
-      defaultValue: 100,
-    },
-    uses_band_powers: {
-      type: DataTypes.BOOLEAN,
-      validate: { notEmpty: false },
-      defaultValue: true,
-    },
-    uses_covariance: {
-      type: DataTypes.BOOLEAN,
-      validate: { notEmpty: false },
-      defaultValue: true,
-    },
   });
 
   Experiment.associate = models => {

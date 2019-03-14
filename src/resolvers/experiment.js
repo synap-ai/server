@@ -15,10 +15,6 @@ export default {
         researcherId,
         title,
         description,
-        epoch_samples,
-        epoch_interval,
-        uses_band_powers,
-        uses_covariance,
         videos,
       },
       { models },
@@ -27,10 +23,6 @@ export default {
         researcherId,
         title,
         description,
-        epoch_samples,
-        epoch_interval,
-        uses_band_powers,
-        uses_covariance,
       });
       
       for (let i = 0; i < videos.length; i++) {
@@ -58,10 +50,6 @@ export default {
         id,
         title,
         description,
-        epoch_samples,
-        epoch_interval,
-        uses_band_powers,
-        uses_covariance,
       },
       { models },
     ) => {
@@ -69,10 +57,6 @@ export default {
       return await experiment.update({
         title,
         description,
-        epoch_samples,
-        epoch_interval,
-        uses_band_powers,
-        uses_covariance,
       });
     },
 
