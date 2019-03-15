@@ -50,10 +50,41 @@ export default {
         id,
         title,
         description,
+        videos
       },
       { models },
     ) => {
       const experiment = await models.Experiment.findById(id);
+      
+      let newVideos = [];
+      for (let i = 0; i < videos.length; i++) {
+        let id = videos[i].id;
+        let title = videos[i].title;
+        let description = videos[i].description;
+        let youtube_id = videos[i].youtube_id;
+        let category = videos[i].category;
+
+        if (id) {
+          let v = await models.Video.findById(id);
+          await v.update({
+            title,
+            description,
+            youtube_id,
+            category,
+          });
+          newVideos.push(v);
+        } else {
+          let v = await models.Video.create({
+            title,
+            description,
+            youtube_id,
+            category,
+          });
+          newVideos.push(v);
+        }
+      }
+
+      await experiment.setVideos(newVideos);
       return await experiment.update({
         title,
         description,
