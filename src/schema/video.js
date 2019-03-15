@@ -9,7 +9,6 @@ export default gql`
   extend type Mutation {
     createVideo(
       title: String!
-      description: String
       youtube_id: String!
       category: String
     ): Video!
@@ -17,7 +16,6 @@ export default gql`
     updateVideo(
       id: ID!
       title: String
-      description: String
       youtube_id: String
       category: String
     ): Video!
@@ -28,14 +26,13 @@ export default gql`
   type Video {
     id: ID!
     title: String!
-    description: String
     youtube_id: String!
     category: String
   }
   
   input VideoInput {
+    id: ID
     title: String!
-    description: String
     youtube_id: String!
     category: String
   }
