@@ -12,6 +12,16 @@ if (process.env.DATABASE_URL) {
     process.env.DATABASE_PASSWORD,
     {
       dialect: 'postgres',
+      logging: function(x) { 
+        let message = x.toString();
+        let length = message.length;
+        if (length < 1000) {
+          console.log(message); 
+        } else {
+          message = message.slice(0 , 1000);
+          console.log(message, '...');
+        }
+      }, 
     },
   );
 }
