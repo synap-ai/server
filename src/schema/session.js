@@ -4,6 +4,7 @@ export default gql`
   extend type Query {
     sessions: [Session!]
     session(id: ID!): Session
+    getSession(sId: ID!, eId: ID!, vId: ID!): Session
   }
 
   extend type Mutation {
