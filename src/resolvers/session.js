@@ -6,6 +6,20 @@ export default {
     session: async (parent, { id }, { models }) => {
       return await models.Session.findById(id);
     },
+    getSession: async (parent, { sId, eId, vId }, {models}) => {
+      let result = await models.Session.findAll({
+        limit: 1,
+        where: {
+          subjectId: sId,
+          experimentId: eId,
+          videoId: vId,
+        },
+        order: [['createdAt', 'DESC']]
+      });
+
+      return result[0];
+
+    }
   },
 
   Mutation: {
