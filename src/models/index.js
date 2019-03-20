@@ -12,6 +12,7 @@ if (process.env.DATABASE_URL) {
     process.env.DATABASE_PASSWORD,
     {
       dialect: 'postgres',
+      host: process.env.DB_HOST || 'localhost',
       logging: function(x) { 
         let message = x.toString();
         let length = message.length;

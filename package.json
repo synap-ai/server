@@ -1,10 +1,10 @@
 {
-  "name": "fullstack-apollo-express-postgresql-boilerplate",
+  "name": "synap-ai-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "10.11.0"
+    "node": "10.x.x"
   },
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
@@ -13,8 +13,8 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],
-  "author": "Robin Wieruch <hello@rwieruch.com> (https://www.robinwieruch.de)",
-  "license": "ISC",
+  "author": "Synap Ai",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.1.6",
     "@babel/node": "^7.0.0",
