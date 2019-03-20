@@ -1,7 +1,7 @@
 export default {
   Query: {
-    experiments: async (parent, args, { models }) => {
-      return await models.Experiment.findAll();
+    experiments: async (parent, args, { models, me }) => {
+      return await models.Experiment.findAll({ where: { researcherId: me.id }});
     },
     experiment: async (parent, { id }, { models }) => {
       return await models.Experiment.findById(id);
@@ -12,15 +12,14 @@ export default {
     createExperiment: async (
       parent,
       {
-        researcherId,
         title,
         description,
         videos,
       },
-      { models },
+      { models, me },
     ) => {
       const experiment = await models.Experiment.create({
-        researcherId,
+        researcherId: me.id,
         title,
         description,
       });

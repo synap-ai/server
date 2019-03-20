@@ -8,7 +8,6 @@ export default gql`
 
   extend type Mutation {
     createExperiment(
-      researcherId: ID!
       title: String!
       description: String
       videos: [VideoInput]
