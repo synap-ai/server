@@ -1,4 +1,5 @@
 import Sequelize from 'sequelize';
+const process = require('process');
 
 let sequelize;
 if (process.env.DATABASE_URL) {
@@ -12,7 +13,7 @@ if (process.env.DATABASE_URL) {
     process.env.DATABASE_PASSWORD,
     {
       dialect: 'postgres',
-      host: process.env.DB_HOST || 'localhost',
+      host: `/cloudsql/${process.env.CLOUD_SQL_CONNECTION_NAME}`,
       logging: function(x) { 
         let message = x.toString();
         let length = message.length;

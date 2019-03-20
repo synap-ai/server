@@ -15,6 +15,7 @@ import resolvers from './resolvers';
 import models, { sequelize } from './models';
 import loaders from './loaders';
 import bodyParser from 'body-parser';
+const process = require('process');
 
 const app = express();
 
