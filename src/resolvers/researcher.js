@@ -21,6 +21,13 @@ export default {
     researcher: async (parent, { id }, { models }) => {
       return await models.Researcher.findById(id);
     },
+    me: async (parent, args, { models, me }) => {
+      if (!me) {
+        return null;
+      }
+
+      return await models.Researcher.findById(me.id);
+    }
   },
 
   Mutation: {
