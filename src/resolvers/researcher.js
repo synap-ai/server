@@ -2,6 +2,8 @@ import jwt from 'jsonwebtoken';
 import { combineResolvers } from 'graphql-resolvers';
 import { AuthenticationError, UserInputError } from 'apollo-server';
 
+const tokenExpiryTime = '7d';
+
 const createToken = async (researcher, secret, expiresIn) => {
   const { id, first_name, last_name, email } = researcher;
   return await jwt.sign(
@@ -43,7 +45,7 @@ export default {
         password,
       });
 
-      return { token: createToken(researcher, secret, '30m') };
+      return { token: createToken(researcher, secret, tokenExpiryTime) };
     },
 
     signIn: async (
@@ -65,7 +67,7 @@ export default {
         throw new AuthenticationError('Invalid password.');
       }
 
-      return { token: createToken(researcher, secret, '30m') };
+      return { token: createToken(researcher, secret, tokenExpiryTime) };
     },
 
     updateResearcher: async (
